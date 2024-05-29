@@ -50,7 +50,6 @@ const Login = () => {
         setLoginPassword('')
     }
 
-
     return (
         <div className='loginPage flex'>
             <div className="container flex">
@@ -64,7 +63,7 @@ const Login = () => {
                         <span className="text">
                             Dont have an account?
                         </span>
-                        <Link to={'/register'}>
+                        <Link to={ '/register' }>
                             <button className="btn">Sign Up</button>
                         </Link>
                     </div>
@@ -76,13 +75,13 @@ const Login = () => {
                         <h3>Welcome Back</h3>
                     </div>
 
-                    <form action="" className='form grid' onSubmit={onSubmit}>
-                        <span className={statusHolder}>{loginStatus}</span>
+                    <form action="" className='form grid' onSubmit={ onSubmit }>
+                        <span className={ statusHolder }>{ loginStatus }</span>
                         <div className="inputDiv">
                             <label htmlFor="username">Username</label>
                             <div className="input flex">
                                 <FaUserShield className='icon'/>
-                                <input type="text" id='username' placeholder='Enter Username' onChange={(event)=>{setLoginUserName(event.target.value)}}/>
+                                <input type="text" id='username' placeholder='Enter Username' onChange={(event)=>{ setLoginUserName(event.target.value) }}/>
                             </div>
                         </div>
 
@@ -90,13 +89,13 @@ const Login = () => {
                             <label htmlFor="password">Password</label>
                             <div className="input flex">
                                 <BsFillShieldLockFill className='icon'/>
-                                <input type="password" id='password' placeholder='Enter Password' onChange={(event)=>{setLoginPassword(event.target.value)}}/>
+                                <input type="password" id='password' placeholder='Enter Password' onChange={(event)=>{ setLoginPassword(event.target.value) }}/>
                             </div>
                         </div>
 
-                        <button type='submit' className='btn flex' onClick={LoginUser}>
+                        <button type='submit' className='btn flex' onClick={ LoginUser }>
                             <span>Login</span>
-                            <AiOutlineSwapRight className='incon'/>
+                            <AiOutlineSwapRight className='icon'/>
                         </button>
 
                         <span className='forgotPassword'>

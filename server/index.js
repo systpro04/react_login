@@ -23,7 +23,7 @@ app.post('/register', (req, res)=>{
     const sentPassword =  req.body.Password
 
     const SQL = 'INSERT INTO users(username, email, password) VALUES (?,?,?)'
-    const Values = [sentEmail, sentUserName, sentPassword]
+    const Values =  [sentEmail, sentUserName, sentPassword ]
 
     db.query(SQL, Values, (err, results)=>{
         if(err){
@@ -33,7 +33,7 @@ app.post('/register', (req, res)=>{
             res.send({message: 'User Added'})
         }
     })
-})
+});
 
 app.post('/login', (req, res)=>{
     const sentLoginUserName =  req.body.LoginUserName
@@ -53,4 +53,30 @@ app.post('/login', (req, res)=>{
         }
 
     })
-})
+});
+
+app.get('/users', (req, res) => {
+    const SQL = 'SELECT * FROM users';
+    
+    db.query(SQL, (err, results) => {
+        if (err) {
+            res.send({ error: err });
+        } else {
+            res.send(results);
+        }
+    });
+});
+
+app.delete('/delete/:id', (req, res) => {
+    const userId = req.params.id;
+    const SQL = 'DELETE FROM users WHERE id = ?';
+    
+    db.query(SQL, userId, (err, results) => {
+        if (err) {
+            res.send({ error: err });
+        } else {
+            res.send({ message: 'User deleted successfully!' });
+        }
+    });
+});
+
