@@ -36,7 +36,7 @@ const Body = () => {
             fetchUsers();
         }
     };
-
+    
     return (
         <div className='container mt-5'>
             <div className="col-md-12">
